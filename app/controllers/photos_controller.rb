@@ -26,6 +26,16 @@ class PhotosController < ApplicationController
     redirect_to("/photos/#{new_photo.id}")
   end
 
+  def update
+    id = params.fetch("id")
+    photo = Photo.where({ :id => id }).at(0)
+    photo.image = params.fetch("image")
+    photo.caption = params.fetch("caption")
+    photo.save
+
+    redirect_to("/photos/#{photo.id}")
+  end
+
   def delete
     @photo_id = params.fetch("id")
     photo = Photo.where({ :id => @photo_id }).at(0)

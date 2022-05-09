@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   get("/photos", { :controller => "photos", :action => "index" })
   get("/photos/:id", { :controller => "photos", :action => "show_detail" })
   get("/add_photo", { :controller => "photos", :action => "create" })
-
+  get("/update_photo/:id", { :controller => "photos", :action => "update" })
   get("/delete_photo/:id", { :controller => "photos", :action => "delete" })
 end
