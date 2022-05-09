@@ -3,10 +3,9 @@
 </div>
 
 <div style="border-bottom: 1px solid lightgray; padding-bottom: 10px;">
-  <form action="/users/:name">
+  <form action="/users/<%= @user %>">
     <label for="username">Username</label>
     <input id="username" placeholder="Enter a username..." name="username">
-    <!-- value="" will add a hardcoded value in the input box  -->
     <button>Add user</button>
   </form>
 </div>

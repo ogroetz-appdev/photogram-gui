@@ -1,3 +1,46 @@
 <div>
   <h1>List of photos</h1>
 </div>
+
+<div style="border-bottom: 1px solid lightgray; padding-bottom: 10px;">
+  <form action="/photos/<%= @photo %>">
+    <label for="image">Image</label>
+    <input id="image" placeholder="Enter a URL for the image..." name="image">
+    <label for="caption">Caption</label>
+    <input id="caption" placeholder="Enter a caption for the photo..." name="caption">
+    <label for="owner_id">Owner ID</label>
+    <input id="owner_id" placeholder="Enter an ID of a User" name="owner_id">
+    <button>Add photo</button>
+  </form>
+</div>
+
+<div style="padding-top: 10px;">
+  <table border="1">
+    <tr>
+      <th>
+        Image
+      </th>
+      <th>
+        Caption
+      </th>
+      <th>
+        Owner
+      </th>
+      <th>
+        Posted
+      </th>
+      <th></th>
+    </tr>
+
+      <% @photos.each do |photo| %>
+      <tr>
+        <td><img src="<%= photo.image %>"></td>
+        <td><%= photo.caption %></td>
+        <td><%= photo.poster.username %></td>
+        <td><%= photo.created_at %></td>
+        <td><a href="/photos/<%= photo.id %>">Show details</a></td>
+      </tr>
+      <% end %>
+
+  </table>
+</div>
