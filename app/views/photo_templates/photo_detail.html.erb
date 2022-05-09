@@ -58,10 +58,14 @@
 <div>
   <h3>Add a new comment</h3>
   <div>
-    <form action="/users/<%= @user_name %>">
-      <label for="edit_name">Username</label>
-      <input for="edit_name" name="edit_name" value="<%= @user_name %>">
-      <button>Update user</button>
+    <form action="/add_comment/<%= @photo.id %>">
+      <label for="photo_id">Photo ID</label>
+      <input id="photo_id" name="photo_id" value="<%= @photo.id %>">
+      <label for="author_id">Author ID</label>
+      <input id="author_id" name="author_id" >
+      <label for="comment">Comment</label>
+      <textarea id="comment" name="comment" placeholder="Enter a comment..."></textarea>
+      <button>Add comment</button>
     </form>
   </div>
 </div>
