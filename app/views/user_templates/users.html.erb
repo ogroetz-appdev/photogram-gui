@@ -1,0 +1,35 @@
+<div>
+  <h1>List of users</h1>
+</div>
+
+<div style="border-bottom: 1px solid lightgray; padding-bottom: 10px;">
+  <form action="/users/:name">
+    <label for="username">Username</label>
+    <input id="username" placeholder="Enter a username..." name="username">
+    <!-- value="" will add a hardcoded value in the input box  -->
+    <button>Add user</button>
+  </form>
+</div>
+
+<div style="padding-top: 10px;">
+  <table border="1">
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
+        Username
+      </th>
+      <th></th>
+    </tr>
+
+      <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.username %></td>
+        <td><a href="/users/<%= user.username %>">Show details</a></td>
+      </tr>
+      <% end %>
+
+  </table>
+</div>
