@@ -16,6 +16,16 @@ class PhotosController < ApplicationController
     end
   end
 
+  def create
+    new_photo = Photo.new
+    new_photo.image = params.fetch("image")
+    new_photo.caption = params.fetch("caption")
+    new_photo.owner_id = params.fetch("owner_id")
+    new_photo.save
+
+    redirect_to("/photos/#{new_photo.id}")
+  end
+
   def delete
     @photo_id = params.fetch("id")
     photo = Photo.where({ :id => @photo_id }).at(0)
