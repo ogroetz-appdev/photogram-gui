@@ -17,9 +17,6 @@ class User < ApplicationRecord
     :uniqueness => { :case_sensitive => false },
   })
 
-  def self
-  end
-
   def comments
     my_id = self.id
 
