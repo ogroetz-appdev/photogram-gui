@@ -1,0 +1,65 @@
+<div>
+  <h1>
+    Photo Details
+  </h1>
+</div>
+<dl>
+  <dt>Image</dt>
+  <dd><img src="<%= @photo.image %>"></dd>
+  <dt>Caption</dt>
+  <dd><%= @photo.caption %></dd>
+  <dt>Owner</dt>
+  <dd><%= @photo.poster.username %></dd>
+  <dt>Posted</dt>
+  <dd><%= @photo.created_at %></dd>
+  <dt>Edit photo</dt>
+  <dd>
+    <form action="/users/<%= @user_name %>">
+      <label for="edit_name">Username</label>
+      <input for="edit_name" name="edit_name" value="<%= @user_name %>">
+      <button>Update user</button>
+    </form>
+  </dd>
+  <dt>
+    Delete photo
+  </dt>
+  <dd>
+    <a href="">Delete this photo</a>
+  </dd>
+</dl>
+<div>
+  <h2>Comments</h2>
+</div>
+<div style="padding-top: 10px;">
+  <table>
+    <tr>
+      <th>
+        Commenter
+      </th>
+      <th>
+        Comment
+      </th>
+      <th>
+        Posted
+      </th>
+    </tr>
+
+      <% @photo.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.commenter.username %></td>
+        <td><%= comment.body %></td>
+        <td><%= comment.created_at %></td>
+      </tr>
+      <% end %>
+  </table>
+</div>
+<div>
+  <h3>Add a new comment</h3>
+  <div>
+    <form action="/users/<%= @user_name %>">
+      <label for="edit_name">Username</label>
+      <input for="edit_name" name="edit_name" value="<%= @user_name %>">
+      <button>Update user</button>
+    </form>
+  </div>
+</div>

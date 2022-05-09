@@ -42,7 +42,7 @@
         <td><%= @user.username %></td>
         <td><%= photo.caption %></td>
         <td><%= photo.created_at %></td>
-        <td><a href="/users/<%=  %>">Show details</a></td>
+        <td><a href="/photos/<%= photo.id %>">Show details</a></td>
       </tr>
       <% end %>
 
